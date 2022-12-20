@@ -99,15 +99,15 @@ function JobForm(props) {
                             <Field
                             variant = "outlined"
                             required
-                            id = "contactNumber"
-                            name = "contactNumber"
-                            label = "Contact Number"
+                            id = "gender"
+                            name = "gender"
+                            label = "Gender(male,female)"
                             fullWidth
                             helperText = {
-                                <ErrorMessage name="contactNumber"></ErrorMessage>
+                                <ErrorMessage name="gender"></ErrorMessage>
                             }
                             error ={
-                                touched.contactNumber && Boolean(errors.contactNumber)
+                                touched.gender && Boolean(errors.gender)
                             }
                             as = {TextField}
                             />
@@ -123,7 +123,65 @@ function JobForm(props) {
                          helperText = {<ErrorMessage name='jobTitle'></ErrorMessage>}
                          error = {touched.jobTitle && Boolean(errors.jobTitle)}
                          as = {TextField}
+                         >
+                            {postionItems.map((item)=>{
+                                <MenuItem key={item.value} value = {item.value}>
+                                    {item.label}
+                                </MenuItem>
+                            })}
+                            </Field>
+                        </Grid>
+                        <Grid item xs = {12} sm ={6}>
+                         <Field 
+                         variant = "outlined"
+                         required
+                          id = "totalExperince"
+                          name = "totalExperince"
+                          label = "Total Experince"
+                          fullWidth
+                          helperText = {
+                            <ErrorMessage name='totalExperince '></ErrorMessage>
+                          }
+                          error = {touched.totalExperince && Boolean(errors.totalExperince)}                       
                          />
+                        </Grid>
+                        <Grid item xs = {12}>
+                           <Field
+                           variant = "outlined"
+                           multiline = {true}
+                           required
+                           id = "expectedSalary"
+                           name = "expectedSalary"
+                           label = "Expected Salary"
+                           rows = {4}
+                           rowsMax = {4}
+                           fullWidth
+                           helperText={
+                            <ErrorMessage name="technicalSkills"></ErrorMessage>
+                          }
+                          error = {
+                            touched.expectedSalary && Boolean(errors.expectedSalary)
+                          }
+                          as = {TextField}
+                           />
+                        </Grid>
+                        <Grid item xs = {12} sm = {6}>
+                            <Field
+                            variant = "outlined"
+                            required
+                            id = "Qualification"
+                            name = "qualification"
+                            label = "Qualification"
+                            fullWidth
+                            helperText = {
+                                <ErrorMessage name='qualification'></ErrorMessage>
+                            }
+                            error = {
+                                touched.qualification && Boolean(errors.qualification)
+                            }
+                            as = {TextField}
+                            >
+                            </Field>
                         </Grid>
                         </Grid>
                        </Form> 
